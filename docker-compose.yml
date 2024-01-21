@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  indiserver:
+    build: .
+    privileged: true
+    volumes:
+      - 'resin-data:/data'
+    ports:
+      - 8624:8624
+      - 7624:7624
+volumes:
+  resin-data:
+  
