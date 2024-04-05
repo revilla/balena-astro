@@ -1,7 +1,8 @@
 #!/bin/bash
 apt update
 apt-get -y install udev cmake gcc git breeze-icon-theme build-essential cdbs cmake dkms extra-cmake-modules fxload gettext git kdoctools5 kinit-dev kio libavcodec-dev libavdevice-dev libboost-dev libboost-regex-dev libcfitsio-dev libcurl4-gnutls-dev libdc1394-22-dev libeigen3-dev libfftw3-dev libftdi1-dev libftdi-dev libgmock-dev libgphoto2-dev libgps-dev libgsl0-dev libgsl-dev libgtest-dev libindi-dev libjpeg-dev libkf5crash-dev libkf5newstuff-dev libkf5notifications-dev libkf5notifyconfig-dev libkf5plotting-dev libkf5xmlgui-dev libkrb5-dev liblimesuite-dev libnova-dev libqt5svg5-dev libqt5websockets5-dev libraw-dev librtlsdr-dev libsecret-1-dev libtheora-dev libtiff-dev libusb-1.0-0-dev libusb-dev qt5keychain-dev qtdeclarative5-dev wcslib-dev xplanet xplanet-images zlib1g-dev aria2 axel wget qtbase5-dev  libev-dev
-pip install importlib_metadata
+pip install --upgrade pip
+pip install importlib.metadata 
 echo "Done installing the required packages for building astronomy software "
 
 echo "Building and installing GSC"
