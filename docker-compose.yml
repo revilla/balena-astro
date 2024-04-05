@@ -9,6 +9,24 @@ services:
     ports:
       - 8624:8624
       - 7624:7624
+  hbbs:
+    container_name: hbbs
+    image: rustdesk/rustdesk-server:latest
+    command: hbbs
+    volumes:
+      - resin-data:/root
+    network_mode: "host"
+    depends_on:
+      - hbbr
+    restart: unless-stopped
+  hbbr:
+    container_name: hbbr
+    image: rustdesk/rustdesk-server:latest
+    command: hbbr
+    volumes:
+      - resin-data:/root
+    network_mode: "host"
+    restart: unless-stopped
+
 volumes:
   resin-data:
-  
