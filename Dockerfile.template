@@ -1,5 +1,5 @@
 #FROM balenalib/aarch64-debian-python:3-bullseye-build
-FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3-bullseye-run
+FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.7-bullseye-run
 
 # This informs the balena base image it should run udev as a daemon (useful if the entry point of your container is other than the init process)
 ENV UDEV=on
