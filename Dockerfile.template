@@ -1,5 +1,5 @@
-#FROM balenalib/aarch64-debian-python:3-bullseye-build
-FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.7-bullseye-run
+FROM balenalib/amd64-ubuntu-python:3-jammy-run
+#FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.7-bullseye-run
 
 # This informs the balena base image it should run udev as a daemon (useful if the entry point of your container is other than the init process)
 ENV UDEV=on
@@ -8,13 +8,22 @@ COPY fxload-amd64 /sbin/qhyfxload
 
 COPY 85-qhhy.rules /etc/udev/rules.d/85-qhhy.rules
 
-WORKDIR /build
+# WORKDIR /build
 
-COPY build.sh build.sh
+# COPY build.sh build.sh
 
-COPY gsc-Makefile gsc-Makefile
+# COPY gsc-Makefile gsc-Makefile
 
-RUN bash build.sh
+# RUN bash build.sh
+
+# INDI DRIVERS REPOSITORY
+RUN sudo apt update
+RUN sudo apt upgrade -y
+RUN sudo apt-get install software-properties-common -y
+RUN sudo apt-add-repository ppa:mutlaqja/ppa
+RUN sudo apt update
+
+RUN sudo apt install indi-full -y
 
 RUN pip install indiweb
 
